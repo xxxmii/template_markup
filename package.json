@@ -1,0 +1,29 @@
+{
+  "name": "template_markup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile:autoprefixer": "postcss assets/css/style.css -u autoprefixer -o assets/css/style.css",
+    "compile:scss": "node-sass assets/sass/style.scss --importer node_modules/node-sass-globbing/index.js assets/css/style.css --output-style compressed --source-map assets/css",
+    "copy:js": "cp assets/js/common.js assets/js/common.min.js",
+    "minify:js": "uglifyjs assets/js/common.js -o assets/js/common.min.js",
+    "watch:scss": "chokidar assets/sass/ --command 'npm run compile:scss; npm run compile:autoprefixer;' --initial",
+    "watch:js": "chokidar assets/js/*.js --ignore assets/js/common.min.js --command 'npm run minify:js' --initial",
+    "server": "browser-sync start --server --files='./*.html, assets/css/*.css, assets/js/*.js' --startPath='./index.html'",
+    "all": "run-p server watch:scss watch:js"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.8.0",
+    "node-sass": "^4.14.1",
+    "postcss-cli": "^7.1.1"
+  },
+  "dependencies": {
+    "browser-sync": "^2.26.7",
+    "chokidar-cli": "^2.1.0",
+    "node-sass-globbing": "0.0.23",
+    "npm-check-updates": "^6.0.1",
+    "npm-run-all": "^4.1.5",
+    "uglify-js": "^3.9.4"
+  }
+}

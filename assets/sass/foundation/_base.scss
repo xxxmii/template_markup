@@ -1,0 +1,41 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background: $base-bg;
+  color: $base-font;
+  font-size: 1.6rem;
+  @include MPlus1p;
+  font-weight: 400;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: $white;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.inner {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+@include laptop {
+  .inner {
+    width: 100%;
+    padding: 0 50px;
+  }
+}
