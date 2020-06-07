@@ -4,10 +4,14 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: $base-font-size + px;
+}
+
 body {
   background: $base-bg;
   color: $base-font;
-  font-size: 1.6rem;
+  font-size: rem(16);
   @include MPlus1p;
   font-weight: 400;
 }
